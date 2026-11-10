@@ -17,6 +17,7 @@ jobs:
           channel: stable
           cache: true
       - run: flutter create --platforms=android --org com.gabungmedia --project-name gabung_media .
+      - run: git checkout -- lib pubspec.yaml
       - run: |
           f=$(ls android/app/build.gradle*)
           sed -i -E 's/minSdk(Version)? *=? *flutter\.minSdkVersion/minSdk = 24/' "$f"
